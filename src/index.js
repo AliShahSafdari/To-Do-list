@@ -18,6 +18,11 @@ const todos = [
     task: 'start new job',
     status: true,
   },
+  {
+    id: 4,
+    task: 'read news fast',
+    status: false,
+  },
 ];
 
 const handleWindowLoad = () => {
