@@ -12,6 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 3px 3px 5px #494949;
+  background-color: #fbf8f8;
 }
 
 .header {
