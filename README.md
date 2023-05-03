@@ -138,8 +138,8 @@ In order to do it, fork this repository, create a new branch and open a Pull Req
 
 I would like to thank Microverse
 
-## 📝 License <a name="license"></a>
+## 📝 License <a name="LICENSE"></a>
 
-This project is [MIT](./LICENSE.md) licensed
+This project is [MIT](./LICENSE.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
