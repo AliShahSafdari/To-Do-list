@@ -1,19 +1,13 @@
-import _ from 'lodash';
 import './style.css';
-import testImage from './assets/test.jpg'
+import Selector from '../modules/selectors.js';
+import Todo from '../modules/todo.js';
 
- function component() {
-   const element = document.createElement('div');
+const objectSelector = new Selector();
+const objectTodo = new Todo();
 
-   // Lodash, now imported by this script
-   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-  element.style.backgroundImage = `url(${testImage})`;
-
-   return element;
- }
-
- document.body.appendChild(component());
-
-
-
+window.addEventListener('load', () => {
+  objectTodo.handleWindowLoad();
+});
+objectSelector.todoForm.addEventListener('submit', () => {
+  objectTodo.hanleFormSubmit();
+});

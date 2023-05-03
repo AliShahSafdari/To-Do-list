@@ -1,6 +1,105 @@
-.hello {
-    color: white;
-    width: 50%;
-    height: 400px;
-    margin: 0 auto;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 10px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 3px 5px #494949;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3%;
+  padding: 1px 10px;
+  border-bottom: 1px solid #878;
+}
+
+.todo_main {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo_main form input {
+  width: 99.3%;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #878;
+}
+
+.todo_main form input:focus-visible {
+  outline: none;
+}
+
+.todo_body .todo_list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  list-style-type: none;
+}
+
+.todo_list li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: -8%;
+  height: 40px;
+  border-bottom: 1px solid #878;
+}
+
+.todo_list li input[type="text"] {
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+.todo_list li[data-status="Completed"] input[type="text"] {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.todo_list li label input[type="text"]:read-only {
+  pointer-events: none;
+}
+
+.todo_list li label {
+  display: flex;
+  flex-direction: row;
+  margin-left: 4%;
+  gap: 5px;
+  flex: 2;
+}
+
+.todo_list li input[type="checkbox"] {
+  margin: 0;
+  width: 10px;
+  cursor: pointer;
+}
+
+.todo_body .action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  background: none;
+}
+
+.todo_body .action:last-child {
+  margin-right: 10px;
+}
+
+.todo_footer {
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 20px;
 }

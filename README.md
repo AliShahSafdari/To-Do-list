@@ -24,9 +24,9 @@
 - [📝 License](#license)
 
 
-# 📖  Awesome books: plain JavaScript with objects <a name="about-project"></a>
+# 📖  Todo List: plain JavaScript with objects <a name="about-project"></a>
 
-**Awesome books** is a basic website that allows users to add/remove books from a list . We achieve that by using JavaScript objects and arrays. We also dynamically modify the DOM and add basic events . we use Github flow and a descriptive and easy to understand README file.
+**Todo List** is a basic website that allows users to add/remove Today`s task from a list . I achieve that by using JavaScript objects and arrays. I also dynamically modify the DOM and add basic events . I use Github flow and a descriptive and easy to understand README file.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -34,6 +34,7 @@
 - CSS
 - JavaScript
 - Linters
+- web pack
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -52,9 +53,9 @@
 
 ### Key Features <a name="key-features"></a>
 
--  Add a new book to the collection
--  Remove a book from the collection
--  Display all books saved in the collection
+-  Add a new task to the collection
+-  Remove a task from the collection
+-  Display all tasks saved in the collection
 -  Data is preserved in the browser's memory
 
 ## 🚀 Live Demo <a name="live-demo"></a>
@@ -81,7 +82,7 @@ Run this command:
 
 ```sh
  cd my-folder
- git clone git@github.com:AliShahSafdari/Awesomebooks.git
+ git clone git@github.com:AliShahSafdari/To-Do-list.git
 ```
 ### Install
 
@@ -115,8 +116,8 @@ Open index.html using live server extension.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Refactor to use JavaScript classes and divided in different files
-- [ ] A complete website with navigation
+- [ ] Refactor to use JavaScript classes and divided in different files 
+- [ ] Use the Web pack to better maintenance
 - [ ] Add more styles
 
 ## 🤝 Contributing <a name="contributing"></a>
