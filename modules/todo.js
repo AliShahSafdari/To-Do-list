@@ -1,4 +1,5 @@
 // import { take } from 'lodash';
+import { parseInt } from 'lodash';
 import Selector from './selectors.js';
 
 const ObjectSelec = new Selector();
@@ -7,7 +8,7 @@ export default class Todo {
     this.todos = JSON.parse(localStorage.getItem('todos')) || [];
   }
 
-  visable=() => {
+  visable = () => {
     if (this.todos.length === 0) {
       ObjectSelec.clear.classList.add('display');
     } else {
@@ -55,15 +56,12 @@ export default class Todo {
     const btndelete = e.target.closest('.js-delete');
     if (!btndelete) return;
     const { id } = btndelete.closest('li').dataset;
-    btndelete.closest('li').remove();
-    const deletedIndex = this.todos.findIndex((todo) => todo.id === id);
-    this.todos.splice(deletedIndex, 1);
-    this.todos.forEach((todo, index) => {
-      if (todo.id > deletedIndex + 1) {
-        todo.id = index + 1;
-      }
+    this.todos = this.todos.filter((todo) => parseInt(todo.id) !== parseInt(id));
+    this.todos.forEach((todo, i) => {
+      todo.i = i + 1;
     });
-    await localStorage.setItem('todos', JSON.stringify(this.todos));
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+    btndelete.closest('li').remove();
     this.visable();
   }
 
