@@ -79,6 +79,18 @@ export default class Todo {
     const exactInput = inputEdit.closest('li').querySelector('input[type="text"]');
     exactInput.addEventListener('keyup', this.editTedxt.bind(e, id));
   }
+  updateStatus=(e) =>{
+    const $status = e.target.closest('input[type="checkbox"]')
+    if (!$status) return
+    const $li = $status.closest('li'),
+        id = $li.dataset.id,
+        status = $status.checked ? true : false
+    const currentIndex = this.todos.findIndex((todo) => todo.id == id)
+    $li.dataset.status = status
+  
+   this.todos[currentIndex].status = status
+    localStorage.setItem('todos', JSON.stringify( this.todos));
+  }
 
   handleFormAction(e) {
     const inputEdit = e.target.closest('.js-edit-input');
@@ -86,5 +98,6 @@ export default class Todo {
       this.updateText(e);
     }
     this.deletTask(e);
+   this.updateStatus(e);
   }
 }
