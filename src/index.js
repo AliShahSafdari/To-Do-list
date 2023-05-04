@@ -28,7 +28,7 @@ const todos = [
 const handleWindowLoad = () => {
   if (todos.length > 0) {
       for(let i=0; i<todos.length; i++){
-   // todos.forEach((todo) => { had to remove this as it wasn't setting event listeners for all delete and checkbox ..
+   // todos.forEach((todo) => { had to remove this as it wasn't setting event listeners for all delete and checkbox ..but its still isn't
       const todoList = `<li data-id="${todos[i].id}" data-status="${todos[i].status}">
       <label>
       <input type="checkbox" id="${todos[i].id}" value="${todos[i].id}"
