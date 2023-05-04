@@ -14,3 +14,10 @@ objectSelector.todoForm.addEventListener('submit', (e) => {
 objectSelector.todoBody.addEventListener('click', (e) => {
   objectTodo.handleFormAction(e);
 });
+
+objectSelector.clear.addEventListener('click',()=>{
+  objectTodo.todos = objectTodo.todos.filter((todo) => todo.status !== true);
+  console.log(objectTodo.todos);
+  localStorage.setItem('todos', JSON.stringify(objectTodo.todos));
+  objectTodo.dispaly();
+});
