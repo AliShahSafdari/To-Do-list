@@ -79,17 +79,17 @@ export default class Todo {
     const exactInput = inputEdit.closest('li').querySelector('input[type="text"]');
     exactInput.addEventListener('keyup', this.editTedxt.bind(e, id));
   }
-  updateStatus=(e) =>{
-    const $status = e.target.closest('input[type="checkbox"]')
-    if (!$status) return
-    const $li = $status.closest('li'),
-        id = $li.dataset.id,
-        status = $status.checked ? true : false
-    const currentIndex = this.todos.findIndex((todo) => todo.id == id)
-    $li.dataset.status = status
-  
-   this.todos[currentIndex].status = status
-    localStorage.setItem('todos', JSON.stringify( this.todos));
+  checkStatus = (e) => {
+    const checkState = e.target.closest('input[type="checkbox"]')
+    if (!checkState) return
+    const listLine = checkState.closest('li');
+    const id = listLine.dataset.id;
+    const status = checkState.checked ? true : false;
+    const currentIndex = this.todos.findIndex((todo) => todo.id == id);
+    listLine.dataset.status = status;
+
+    this.todos[currentIndex].status = status;
+    localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
   handleFormAction(e) {
@@ -98,6 +98,6 @@ export default class Todo {
       this.updateText(e);
     }
     this.deletTask(e);
-   this.updateStatus(e);
+    this.checkStatus(e);
   }
 }

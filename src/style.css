@@ -64,7 +64,7 @@ body {
   border-radius: 3px;
 }
 
-.todo_list li[data-status="Completed"] input[type="text"] {
+.todo_list li[data-status="true"] input[type="text"] {
   text-decoration: line-through;
   color: #aaa;
 }
@@ -103,6 +103,14 @@ body {
   text-align: center;
   padding: 10px;
   padding-bottom: 20px;
+}
+
+.todo_footer button {
+  text-align: center;
+  border: none;
+  background-color: #ccc;
+  font-size: 14px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .todo_main form {

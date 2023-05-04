@@ -17,7 +17,6 @@ objectSelector.todoBody.addEventListener('click', (e) => {
 
 objectSelector.clear.addEventListener('click',()=>{
   objectTodo.todos = objectTodo.todos.filter((todo) => todo.status !== true);
-  console.log(objectTodo.todos);
   localStorage.setItem('todos', JSON.stringify(objectTodo.todos));
   objectTodo.dispaly();
 });
