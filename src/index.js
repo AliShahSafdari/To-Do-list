@@ -15,8 +15,11 @@ objectSelector.todoBody.addEventListener('click', (e) => {
   objectTodo.handleFormAction(e);
 });
 
-objectSelector.clear.addEventListener('click',()=>{
+objectSelector.clear.addEventListener('click', () => {
   objectTodo.todos = objectTodo.todos.filter((todo) => todo.status !== true);
+  objectTodo.todos.forEach((todo, id) => {
+    todo.id = id + 1;
+  });
   localStorage.setItem('todos', JSON.stringify(objectTodo.todos));
   objectTodo.dispaly();
 });

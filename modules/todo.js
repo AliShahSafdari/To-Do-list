@@ -39,7 +39,7 @@ export default class Todo {
   addTask = (e) => {
     e.preventDefault();
     const todo = ObjectSelec.input.value;
-    if(!todo) return
+    if (!todo) return;
     if (this.todos.length === 0) {
       const myTodo = { id: 1, task: todo, status: false };
       this.todos.push(myTodo);
@@ -80,13 +80,14 @@ export default class Todo {
     const exactInput = inputEdit.closest('li').querySelector('input[type="text"]');
     exactInput.addEventListener('keyup', this.editTedxt.bind(e, id));
   }
+
   checkStatus = (e) => {
-    const checkState = e.target.closest('input[type="checkbox"]')
-    if (!checkState) return
+    const checkState = e.target.closest('input[type="checkbox"]');
+    if (!checkState) return;
     const listLine = checkState.closest('li');
-    const id = listLine.dataset.id;
-    const status = checkState.checked ? true : false;
-    const currentIndex = this.todos.findIndex((todo) => todo.id == id);
+    const { id } = listLine.dataset;
+    const status = !!checkState.checked;
+    const currentIndex = this.todos.findIndex((todo) => parseInt(todo.id) === parseInt(id));
     listLine.dataset.status = status;
 
     this.todos[currentIndex].status = status;

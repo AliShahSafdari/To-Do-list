@@ -101,16 +101,22 @@ body {
 
 .todo_footer {
   text-align: center;
-  padding: 10px;
   padding-bottom: 20px;
 }
 
-.todo_footer button {
+.todo_footer .clear {
   text-align: center;
   border: none;
-  background-color: #ccc;
-  font-size: 14px;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: rgba(255, 220, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.todo_footer .clear:active {
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
 }
 
 .todo_main form {
