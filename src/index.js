@@ -11,6 +11,7 @@ window.addEventListener('load', () => {
 objectSelector.todoForm.addEventListener('submit', (e) => {
   objectTodo.addTask(e);
 });
+
 objectSelector.todoBody.addEventListener('click', (e) => {
   objectTodo.handleFormAction(e);
 });

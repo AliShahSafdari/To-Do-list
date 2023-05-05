@@ -1,5 +1,6 @@
 import { parseInt } from 'lodash';
 import Selector from './selectors.js';
+import checkStatus from './statusCheck.js';
 
 const ObjectSelec = new Selector();
 export default class Todo {
@@ -20,7 +21,7 @@ export default class Todo {
     this.todos.forEach((todo) => {
       const todoList = `<li data-id="${todo.id}" data-status="${todo.status}">
       <label for="${todo.id}">
-      <input type="checkbox" id="${todo.id}" value="${todo.id}"
+      <input type="checkbox" class="check" id="${todo.id}" value="${todo.id}"
       ${todo.status === 'completed'}/>
       <input type="text" class="js-edit-input" value="${todo.task}"/>
       </label>
@@ -80,16 +81,20 @@ export default class Todo {
     exactInput.addEventListener('keyup', this.editTedxt.bind(e, id));
   }
 
-  checkStatus = (e) => {
-    const checkState = e.target.closest('input[type="checkbox"]');
-    if (!checkState) return;
-    const listLine = checkState.closest('li');
-    const { id } = listLine.dataset;
-    const status = !!checkState.checked;
-    const currentIndex = this.todos.findIndex((todo) => parseInt(todo.id) === parseInt(id));
-    listLine.dataset.status = status;
+  // checkStatus = (e) => {
+  //   const checkState = e.target.closest('input[type="checkbox"]');
+  //   if (!checkState) return;
+  //   const listLine = checkState.closest('li');
+  //   const { id } = listLine.dataset;
+  //   const status = !!checkState.checked;
+  //   const currentIndex = this.todos.findIndex((todo) => parseInt(todo.id) === parseInt(id));
+  //   listLine.dataset.status = status;
 
-    this.todos[currentIndex].status = status;
+  //   this.todos[currentIndex].status = status;
+  //   localStorage.setItem('todos', JSON.stringify(this.todos));
+  // }
+  checkStatus = (e) => {
+    checkStatus(e, this.todos);
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
