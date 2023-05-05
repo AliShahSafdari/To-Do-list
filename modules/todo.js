@@ -39,6 +39,7 @@ export default class Todo {
   addTask = (e) => {
     e.preventDefault();
     const todo = ObjectSelec.input.value;
+    if(!todo) return
     if (this.todos.length === 0) {
       const myTodo = { id: 1, task: todo, status: false };
       this.todos.push(myTodo);
@@ -57,10 +58,11 @@ export default class Todo {
     if (!btndelete) return;
     const { id } = btndelete.closest('li').dataset;
     this.todos = this.todos.filter((todo) => parseInt(todo.id) !== parseInt(id));
-    this.todos.forEach((todo, i) => {
-      todo.i = i + 1;
+    this.todos.forEach((todo, id) => {
+      todo.id = id + 1;
     });
     localStorage.setItem('todos', JSON.stringify(this.todos));
+    this.dispaly();
     btndelete.closest('li').remove();
     this.visable();
   }
@@ -69,7 +71,6 @@ export default class Todo {
     const { value } = e.target;
     const index = this.todos.findIndex((todo) => parseInt(todo.id, 10) === parseInt(id, 10));
     this.todos[index].task = value;
-
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
