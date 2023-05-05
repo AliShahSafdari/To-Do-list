@@ -1,4 +1,3 @@
-// import { take } from 'lodash';
 import { parseInt } from 'lodash';
 import Selector from './selectors.js';
 
