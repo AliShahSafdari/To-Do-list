@@ -1,6 +1,6 @@
-// import { take } from 'lodash';
 import { parseInt } from 'lodash';
 import Selector from './selectors.js';
+import checkStatus from './statusCheck.js';
 
 const ObjectSelec = new Selector();
 export default class Todo {
@@ -21,7 +21,7 @@ export default class Todo {
     this.todos.forEach((todo) => {
       const todoList = `<li data-id="${todo.id}" data-status="${todo.status}">
       <label for="${todo.id}">
-      <input type="checkbox" id="${todo.id}" value="${todo.id}"
+      <input type="checkbox" class="check" id="${todo.id}" value="${todo.id}"
       ${todo.status === 'completed'}/>
       <input type="text" class="js-edit-input" value="${todo.task}"/>
       </label>
@@ -39,6 +39,7 @@ export default class Todo {
   addTask = (e) => {
     e.preventDefault();
     const todo = ObjectSelec.input.value;
+    if (!todo) return;
     if (this.todos.length === 0) {
       const myTodo = { id: 1, task: todo, status: false };
       this.todos.push(myTodo);
@@ -57,10 +58,11 @@ export default class Todo {
     if (!btndelete) return;
     const { id } = btndelete.closest('li').dataset;
     this.todos = this.todos.filter((todo) => parseInt(todo.id) !== parseInt(id));
-    this.todos.forEach((todo, i) => {
-      todo.i = i + 1;
+    this.todos.forEach((todo, id) => {
+      todo.id = id + 1;
     });
     localStorage.setItem('todos', JSON.stringify(this.todos));
+    this.dispaly();
     btndelete.closest('li').remove();
     this.visable();
   }
@@ -69,7 +71,6 @@ export default class Todo {
     const { value } = e.target;
     const index = this.todos.findIndex((todo) => parseInt(todo.id, 10) === parseInt(id, 10));
     this.todos[index].task = value;
-
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
@@ -80,11 +81,17 @@ export default class Todo {
     exactInput.addEventListener('keyup', this.editTedxt.bind(e, id));
   }
 
+  checkStatus = (e) => {
+    checkStatus(e, this.todos);
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+
   handleFormAction(e) {
     const inputEdit = e.target.closest('.js-edit-input');
     if (inputEdit) {
       this.updateText(e);
     }
     this.deletTask(e);
+    this.checkStatus(e);
   }
 }

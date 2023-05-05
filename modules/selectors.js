@@ -5,5 +5,7 @@ export default class Selector {
 
  clear = document.querySelector('.js-clear');
 
+ listclick = document.querySelector('.todo_list');
+
  input = document.querySelector('#input');
 }

@@ -64,7 +64,7 @@ body {
   border-radius: 3px;
 }
 
-.todo_list li[data-status="Completed"] input[type="text"] {
+.todo_list li[data-status="true"] input[type="text"] {
   text-decoration: line-through;
   color: #aaa;
 }
@@ -101,8 +101,22 @@ body {
 
 .todo_footer {
   text-align: center;
-  padding: 10px;
   padding-bottom: 20px;
+}
+
+.todo_footer .clear {
+  text-align: center;
+  border: none;
+  background-color: rgba(255, 220, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.todo_footer .clear:active {
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
 }
 
 .todo_main form {
